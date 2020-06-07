@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem 'compass-rails'
 gem 'sprockets'
+gem 'devise'
+gem 'jquery-rails'
+gem 'jcanvas-rails'
