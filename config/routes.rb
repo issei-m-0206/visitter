@@ -7,4 +7,5 @@ Rails.application.routes.draw do
       get 'mypage'
     end  
   end  
+  resources :areas, only: [:new, :create, :edit, :create]
 end

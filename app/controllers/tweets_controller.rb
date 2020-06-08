@@ -3,10 +3,12 @@ class TweetsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
+    @area = Area.all
     @tweets = Tweet.includes(:user).order("created_at DESC")
   end
   
   def new
+    @area = Area.new
     @tweet = Tweet.new
   end
   
@@ -32,7 +34,7 @@ class TweetsController < ApplicationController
   
   private
   def tweet_params
-    params.require(:tweet).permit(:text, :image).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:text, :image, { area_ids: [] }).merge(user_id: current_user.id)
   end  
 
   def set_tweet
