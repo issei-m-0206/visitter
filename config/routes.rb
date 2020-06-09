@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     member do
       get 'mypage'
+      get 'gmap'
     end  
   end  
   resources :areas, only: [:new, :create, :edit, :create] do
