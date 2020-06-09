@@ -2,6 +2,18 @@
 <%= javascript_include_tag 'jquery.japan-map.min.js' %>
   <script>
   $(function(){
+    var areaLinks = {
+		 1:"areas/1/part",
+		 2:"areas/2/part",
+		 3:"areas/3/part",
+		 4:"aeras/4/part",
+		 5:"areas/5/part",
+		 6:"areas/6/part",
+		 7:"areas/7/part",
+		 8:"areas/8/part",
+		 9:"areas/9/part"
+	    };
+
     var areas = [
         {code : 1, name: "北海道地方", color: "#7f7eda", hoverColor: "#b3b2ee", prefectures: [1]},
         {code : 2, name: "東北地方",   color: "#759ef4", hoverColor: "#98b9ff", prefectures: [2,3,4,5,6,7]},
@@ -28,7 +40,7 @@
         movesIslands : true,
         fontSize : 11,
         onSelect : function(data){
-            alert(data.name);
+            location.href = areaLinks[data.area.code];
         }
       });
   });

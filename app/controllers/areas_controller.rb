@@ -4,5 +4,11 @@ class AreasController < ApplicationController
   end
   
   def create
+  end
 
+  def part
+    @area = Area.find(params[:id])
+    area = Area.find(params[:id])
+    @tweets = area.tweets
+  end  
 end
