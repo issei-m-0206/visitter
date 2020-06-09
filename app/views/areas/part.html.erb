@@ -1,3 +1,4 @@
+<%= @area.name %> 
 <div class="contents row">
   <% @tweets.each do |tweet| %>
     <div class="content_post" style="background-image: url(<%= tweet.image %>);">
@@ -22,8 +23,9 @@
         <a href="/users/<%= tweet.user.id %>">
           <span>投稿者</span><%= tweet.user.nickname %>
         </a>
-        <%= @areas.name %>
+        <%# <%= area.name %>
       </span>
     </div>
   <% end %>
 </div>
+
