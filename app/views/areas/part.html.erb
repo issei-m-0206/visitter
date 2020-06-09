@@ -1,5 +1,6 @@
-<%= @area.name %> 
-<div class="contents row">
+<div class="contents row">  
+  <p><%= @area.name %>地方の投稿一覧</p> 
+
   <% @tweets.each do |tweet| %>
     <div class="content_post" style="background-image: url(<%= tweet.image %>);">
       <div class="more">
