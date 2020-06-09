@@ -8,12 +8,12 @@ class TweetsController < ApplicationController
   end
   
   def new
+    @areas = Area.all
     @area = Area.new
     @tweet = Tweet.new
   end
   
   def create
-    
     Tweet.create(tweet_params)
   end
 
