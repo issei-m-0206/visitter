@@ -343,6 +343,7 @@ div.contents.row {
   }
 }
 form {
+  text-align: center;
   h3 {
     @include baseMargin(0 0 20px);
     text-align: center;
@@ -351,11 +352,12 @@ form {
     color: $dark;
   }
   input,textarea {
-    width: 100%;
+    // width: 100%;
     @include boxBase(5px 0 15px,10px);
     border: 1px solid $gray;
     border-radius: 5px;
     font-family: "游ゴシック", "YuGothic";
+    padding:0 15px;
   }
   input[type="submit"] {
     @extend .transition;
