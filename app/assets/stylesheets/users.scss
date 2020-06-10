@@ -17,7 +17,27 @@
   height: 20px;
   text-align: center;
 }
- #map-container {
+#map-container {
    text-align: center;
    padding-top: 20px;
- }
+}
+
+.myp__contents {
+  height: 100%;
+  font-size: 30px;
+  &__box {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 300px;
+    &__triplog {
+
+    }
+    &__gmap {
+
+    }
+    &__tourist {
+
+    }
+  }
+}

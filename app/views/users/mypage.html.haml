@@ -1,5 +1,11 @@
 .myp__contents
   .myp__contents__box
-    = link_to "triplog", "/"
-    = link_to "nexttrip", "gmap"
-    = link_to "tourist", "/"
+    = link_to "/", class: "myp__contents__box__triplog" do
+      =icon('fas', 'plane')
+      TripLog
+    = link_to "gmap", class: "myp__contents__box__gmap" do
+      =icon('fas','map-pin')
+      NextTrip
+    = link_to "/", class: "myp__contents__box__tourist" do
+      =icon('fas', 'users')
+      Tourist
