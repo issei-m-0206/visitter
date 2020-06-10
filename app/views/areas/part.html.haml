@@ -19,4 +19,5 @@
         %a{:href => "/users/#{tweet.user.id}"}
           %span 投稿者
           = tweet.user.nickname
+  = paginate(@tweets)        
   = link_to "Back To JapanMap", "../../users"

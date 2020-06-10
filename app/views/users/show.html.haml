@@ -5,4 +5,5 @@
   - @tweets.each do |tweet|
     .content_post{:style => "background-image: url(#{tweet.image});"}
       = simple_format(tweet.text)
+  = paginate(@tweets)    
   = link_to "Back To --", "/"
