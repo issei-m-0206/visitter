@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
 
   def index
     @areas = Area.all
-    @tweets = Tweet.includes(:user).order("created_at DESC")
+    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
   
   def new
