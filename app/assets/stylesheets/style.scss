@@ -118,7 +118,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
-header.header {
+.header {
   @include basePadding;
   border-bottom: 1px solid $gray;
   background-color: #fff;
@@ -128,26 +128,42 @@ header.header {
   right: 0;
   z-index: 5;
   height: 62px;
-  div.header__bar.row {
+  &__box {
     position: relative;
-    h1.grid-6 {
-      font-size: 20px;
-      line-height: 41px;
-      float: left;
-      a {
-        display: block;
+    &__upper {
+      display: flex;
+      justify-content: space-around;
+    }  
+    &__under {
+      &__login-user{
+        display: flex;
+        justify-content: space-evenly;
+        &__btn {
+        }  
+      }
+      &__not-login-user {
+        display: flex;
+        justify-content: space-evenly;
       }
     }
-    div.grid-6 {
-      float: right;
-      text-align: right;
-      a.post {
-        @extend .btn;
-        width: 120px;
-        display: inline-left;
-        margin-left: 10px;
-      }
-    }
+    // &__grid-6 {
+    //   font-size: 20px;
+    //   line-height: 41px;
+    //   float: left;
+    //   a {
+    //     display: block;
+    //   }
+    // }
+    // .grid-6 {
+    //   float: right;
+    //   text-align: right;
+    //   .post {
+    //     @extend .btn;
+    //     width: 120px;
+    //     display: inline-left;
+    //     margin-left: 10px;
+    //   }
+    // }
   }
   .user_nav {
     position: relative;
