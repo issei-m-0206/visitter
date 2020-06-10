@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     member do
       get 'part'
     end
-  end    
+  end   
+  get 'maps/index' 
+  resources :maps, only: [:index]
 end
