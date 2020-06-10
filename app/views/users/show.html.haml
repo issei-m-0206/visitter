@@ -4,6 +4,15 @@
     さんの投稿一覧
   - @tweets.each do |tweet|
     .content_post{:style => "background-image: url(#{tweet.image});"}
+      .more
+        %span= image_tag 'arrow_top.png'
+        %ul.more_list
+          - if user_signed_in? && current_user.id == tweet.user_id
+            %li
+              = link_to '編集', "/tweets/#{tweet.id}/edit", method: :get
+            %li
+              = link_to '削除', "/tweets/#{tweet.id}", method: :delete
       = simple_format(tweet.text)
+       
   = paginate(@tweets)    
   = link_to "Back To --", "/"
