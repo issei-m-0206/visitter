@@ -5,6 +5,6 @@
         投稿する
       = form.label :area_id
       = form.collection_check_boxes :area_ids, Area.all, :id, :name
-      = form.file_field :image, placeholder: "Image"
+      = form.file_field :image
       = form.text_field :text, placeholder: "type a place" , rows: "10"
       = form.submit "SEND"
