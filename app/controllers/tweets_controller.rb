@@ -3,8 +3,8 @@ class TweetsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
+    # @area = Area.find(:id)
     @area = Area.all
-    @areas = Area.all
     @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
   
@@ -32,7 +32,7 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @areas = Area.all
+    @area = Area.all
   end
   
   private
