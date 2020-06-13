@@ -2,6 +2,8 @@
   %p
     = @nickname
     さんの投稿一覧
+    = render 'follow_form'
+    = render 'stats'
   - @tweets.each do |tweet|
     .content_post{:style => "background-image: url(#{tweet.image});"}
       .more

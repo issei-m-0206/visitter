@@ -3,9 +3,11 @@
     = link_to "/tweets", class: "myp__contents__box__triplog" do
       =icon('fas', 'plane')
       TripLog
-    = link_to "../../maps", class: "myp__contents__box__gmap" do
-      =icon('fas','map-pin')
-      NextTrip
-    -# = link_to "/", class: "myp__contents__box__tourist" do
-    -#   =icon('fas', 'users')
-    -#   Tourist
+    -if user_signed_in?   
+      = link_to "../../maps", class: "myp__contents__box__gmap" do
+        =icon('fas','map-pin')
+        NextTrip
+   
+      = link_to "../../users/#{current_user.id}/follow_index", class: "myp__contents__box__tourist" do
+        =icon('fas', 'users')
+        Tourist

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     member do
       get 'mypage'
       get 'gmap'
+      get :following, :followers
+      get 'follow_index'
     end  
   end  
   resources :areas, only: [:new, :create, :edit, :create] do
@@ -16,4 +18,5 @@ Rails.application.routes.draw do
   end   
   get 'maps/index' 
   resources :maps, only: [:index]
+  resources :relationships, only: [:create, :destroy]
 end
