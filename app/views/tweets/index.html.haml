@@ -5,18 +5,19 @@
         %span= image_tag 'arrow_top.png'
         %ul.more_list
           %li
-            = link_to '詳細', "/tweets/#{tweet.id}", method: :get
+            = link_to '詳細', tweet_path(tweet.id), method: :get
           - if user_signed_in? && current_user.id == tweet.user_id
             %li
-              = link_to '編集', "/tweets/#{tweet.id}/edit", method: :get
+              = link_to '編集', edit_tweet_path(tweet.id), method: :get
             %li
-              = link_to '削除', "/tweets/#{tweet.id}", method: :delete
+              = link_to '削除', tweet_path(tweet.id), method: :delete
       = simple_format(tweet.text)
       %span.name
-        %a{:href => "/users/#{tweet.user.id}"}
+        %a{href:"/users/#{tweet.user.id}"}
           %span 投稿者
           = tweet.user.nickname
-        = @area.name
+        
+        
 
   = paginate(@tweets) 
       
