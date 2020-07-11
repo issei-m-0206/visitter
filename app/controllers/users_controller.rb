@@ -31,7 +31,8 @@ class UsersController < ApplicationController
   end
   
   def follow_index
-    @users = User.find(params[:id])
+    @user = User.find_by(id: current_user.id)
+    @followers = @user.followers
     user = User.find(params[:id])
   end  
 

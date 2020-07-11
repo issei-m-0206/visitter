@@ -1,7 +1,7 @@
 %p 
 フォロワー一覧
 
-
-= @users.followings.each do |user| 
-  = user.nickname 
+-# - binding.pry
+= @followers.each do |follower| 
+  = follower.name
   

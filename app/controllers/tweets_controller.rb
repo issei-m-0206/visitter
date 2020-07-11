@@ -3,8 +3,9 @@ class TweetsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    # @area = Area.find(:id)
     @area = Area.all
+    # binding.pry
+    # @area = Area.find(params[:area_id])
     @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
   
