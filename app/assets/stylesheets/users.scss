@@ -22,19 +22,20 @@
 .myp__contents {
   height: 100%;
   font-size: 30px;
+
   &__box {
     height: 100%;
     display: flex;
     justify-content: space-evenly;
     padding-top: 300px;
     &__triplog {
-
+      color: gray;
     }
     &__gmap {
-
+      color: gray;
     }
     &__tourist {
-
+      color: gray;
     }
   }
 }
