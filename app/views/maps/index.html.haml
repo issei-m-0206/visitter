@@ -1,38 +1,57 @@
 .head
-%script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCASryFycTCRVFgnIWCBywGrZdRpTXXLwo&callback=initMap"}
+%script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCASryFycTCRVFgnIWCBywGrZdRpTXXLwo&callback=initMap&libraries=places,geometry"}
 
 :javascript
   var map;
-  var geocoder;
+  var geocoder = new google.maps.Geocoder();
   var display = document.getElementById('display');
   var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
-  $(function initMap(){
+  var infoWindow;
+  window.onload = function(){
+    $(function initMap(){
 
-    tokyo = {lat: 35.6803997, lng: 139.7690174}
+      tokyo = {lat: 35.6803997, lng: 139.7690174}
 
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: tokyo,
-      zoom: 5,
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: tokyo,
+        zoom: 5,
+      });
+
+      
+      document.getElementById('submit').addEventListener('click', function() {
+            geocodeAddress(geocoder, map);
+        });
+
     });
-
-    marker = new google.maps.Marker({
-      position: tokyo,
-      map: map
+    function geocodeAddress(geocoder, resultsMap) 
+    {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) { 
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('正しく検索できていないか、登録されていません');
+            }
+        });
+    }
+    infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: 'info' // 吹き出しに表示する内容
     });
-  });
-  
+    marker.addListener('click', function() { // マーカーをクリックしたとき
+      infoWindow.open(map,marker); // 吹き出しの表示
+    });
+    
+  }
 
   
-
-
   
 
 %input{placeholder: "地名で検索",id: "address"}
-%input{type: "button", value:"検索",onclick: "codeAddress()"}
-#latlngDisplay
-  経緯、緯度
-#addressDisplay
-  住所
-#display
+%input{type: "button", value:"検索",onclick: "codeAddress()",id: "submit"}
+
 
 #map
